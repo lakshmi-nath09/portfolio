@@ -1,3 +1,4 @@
+/* ================== BASE STYLES ================== */
 * {
   margin: 0;
   padding: 0;
@@ -6,20 +7,42 @@
 }
 
 body {
-  background: #f5f5f5;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: 0.3s ease;
 }
 
-/* Navbar */
+/* ================== VARIABLES ================== */
+:root {
+  --bg-color: #f5f5f5;        /* body background */
+  --text-color: #333;         /* text color */
+  --nav-bg: #222;             /* navbar background */
+  --card-bg: #ffffff;         /* card/project background */
+  --hero-bg: #4f46e5;         /* hero section background */
+  --button-bg: #ffd700;       /* hero button background */
+}
+
+/* Dark mode */
+body.dark {
+  --bg-color: #0f172a;
+  --text-color: #e5e7eb;
+  --nav-bg: #020617;
+  --card-bg: #1e293b;
+  --hero-bg: #1e293b;
+  --button-bg: #ffd700;
+}
+
+/* ================== NAVBAR ================== */
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px 40px;
-  background: #222;
+  background-color: var(--nav-bg);
 }
 
 nav .logo {
-  color: #fff;
+  color: white;
 }
 
 nav ul {
@@ -28,19 +51,29 @@ nav ul {
 }
 
 nav ul li a {
-  color: #fff;
+  color: white;
   margin-left: 20px;
   text-decoration: none;
 }
 
-/* Hero */
+/* Dark mode button */
+.dark-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: white;
+  margin-left: 20px;
+}
+
+/* ================== HERO ================== */
 .hero {
   height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #4f46e5;
+  background-color: var(--hero-bg);
   color: white;
   text-align: center;
 }
@@ -53,12 +86,12 @@ nav ul li a {
   margin-top: 20px;
   padding: 10px 20px;
   border: none;
-  background: #ffd700;
+  background-color: var(--button-bg);
   cursor: pointer;
   font-size: 16px;
 }
 
-/* Sections */
+/* ================== SECTIONS ================== */
 section {
   padding: 60px 40px;
   max-width: 900px;
@@ -69,65 +102,38 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* Projects */
+/* ================== PROJECTS ================== */
 .project-card {
-  background: white;
+  background-color: var(--card-bg);
   padding: 20px;
   margin-bottom: 15px;
   border-radius: 5px;
+  transition: 0.3s ease;
 }
 
-/* Skills */
+/* ================== SKILLS ================== */
 .skills-list {
   display: flex;
   gap: 15px;
   list-style: none;
 }
 
-/* Footer */
+/* ================== FOOTER ================== */
 footer {
   text-align: center;
   padding: 20px;
-  background: #222;
-  color: white;
-}
-/* ---------- DARK MODE ---------- */
-
-:root {
-  --bg-color: #f5f5f5;
-  --text-color: #333;
-  --nav-bg: #222;
-  --card-bg: #ffffff;
-}
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: 0.3s ease;
-}
-
-nav {
   background-color: var(--nav-bg);
-}
-
-.project-card {
-  background-color: var(--card-bg);
-}
-
-/* Dark theme */
-body.dark {
-  --bg-color: #0f172a;
-  --text-color: #e5e7eb;
-  --nav-bg: #020617;
-  --card-bg: #1e293b;
-}
-
-/* Dark mode button */
-.dark-btn {
-  background: none;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
   color: white;
 }
 
+/* ================== OPTIONAL: SCROLL ANIMATION ================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
